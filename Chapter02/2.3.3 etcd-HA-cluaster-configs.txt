@@ -110,9 +110,9 @@ ETCD_INITIAL_CLUSTER_STATE=new
 
 
 
-# Æô¶¯etcd·şÎñ£¬²¢ÉèÖÃÎª¿ª»ú×ÔÆô¶¯
+# å¯åŠ¨etcdæœåŠ¡ï¼Œå¹¶è®¾ç½®ä¸ºå¼€æœºè‡ªå¯åŠ¨
 systemctl restart etcd && systemctl enable etcd
 
 
-# Í¨¹ıetcdctl endpoint healthÃüÁî·ÃÎÊetcd¼¯Èº£¬ÑéÖ¤¼¯Èº×´Ì¬ÊÇ·ñÕı³£
+# é€šè¿‡etcdctl endpoint healthå‘½ä»¤è®¿é—®etcdé›†ç¾¤ï¼ŒéªŒè¯é›†ç¾¤çŠ¶æ€æ˜¯å¦æ­£å¸¸
 etcdctl --cacert=/etc/kubernetes/pki/ca.crt --cert=/etc/etcd/pki/etcd_client.crt --key=/etc/etcd/pki/etcd_client.key --endpoints=https://192.168.18.3:2379,https://192.168.18.4:2379,https://192.168.18.5:2379 endpoint health

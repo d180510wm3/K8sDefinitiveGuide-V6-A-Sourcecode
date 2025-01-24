@@ -1,8 +1,8 @@
-# ÔİÍ£DeploymentµÄ¸üĞÂ²Ù×÷
+# æš‚åœDeploymentçš„æ›´æ–°æ“ä½œ
 kubectl rollout pause deployment/nginx-deployment
 
-# ¸üĞÂÈİÆ÷µÄ×ÊÔ´ÏŞÖÆÅäÖÃ
+# æ›´æ–°å®¹å™¨çš„èµ„æºé™åˆ¶é…ç½®
 kubectl set resources deployment nginx-deployment -c=nginx --limits=cpu=200m,memory=512Mi
 
-# »Ö¸´Õâ¸öDeploymentµÄ²¿Êğ²Ù×÷
+# æ¢å¤è¿™ä¸ªDeploymentçš„éƒ¨ç½²æ“ä½œ
 kubectl rollout resume deploy nginx-deployment

@@ -1,23 +1,23 @@
-# »ñÈ¡Ä¬ÈÏµÄ³õÊ¼»¯²ÎÊıÎÄ¼ş
+# è·å–é»˜è®¤çš„åˆå§‹åŒ–å‚æ•°æ–‡ä»¶
 kubeadm config print init-defaults > init-config.yaml
 
-# ÏÂÔØËùĞèµÄ¾µÏñ
+# ä¸‹è½½æ‰€éœ€çš„é•œåƒ
 kubeadm config images list
 kubeadm config images pull --config=init-config.yaml
 
 
 
 
-# »ùÓÚÖ®Ç°´´½¨µÄÅäÖÃÎÄ¼şÒ»¼ü°²×°Master
+# åŸºäºä¹‹å‰åˆ›å»ºçš„é…ç½®æ–‡ä»¶ä¸€é”®å®‰è£…Master
 kubeadm init --config=init-config.yaml
 
-# rootÓÃ»§Í¨¹ı»·¾³±äÁ¿KUBECONFIGÉèÖÃÅäÖÃÎÄ¼ş£¬Ö¸¶¨ÎªÓÉkubeadm´´½¨µÄÅäÖÃÎÄ¼şadmin.confÈ«Â·¾¶
+# rootç”¨æˆ·é€šè¿‡ç¯å¢ƒå˜é‡KUBECONFIGè®¾ç½®é…ç½®æ–‡ä»¶ï¼ŒæŒ‡å®šä¸ºç”±kubeadmåˆ›å»ºçš„é…ç½®æ–‡ä»¶admin.confå…¨è·¯å¾„
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
-# ÆÕÍ¨ÓÃ»§£¨·Çroot£©¿ÉÒÔ½«admin.confÅäÖÃÎÄ¼ş¸´ÖÆµ½ÓÃ»§HOMEÄ¿Â¼µÄ.kube×ÓÄ¿Â¼ÏÂ£¬²¢ÉèÖÃÕıÈ·µÄÎÄ¼şÈ¨ÏŞ
+# æ™®é€šç”¨æˆ·ï¼ˆérootï¼‰å¯ä»¥å°†admin.confé…ç½®æ–‡ä»¶å¤åˆ¶åˆ°ç”¨æˆ·HOMEç›®å½•çš„.kubeå­ç›®å½•ä¸‹ï¼Œå¹¶è®¾ç½®æ­£ç¡®çš„æ–‡ä»¶æƒé™
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# ÑéÖ¤kubectlÄÜ¹»ÕıÈ·Á¬½ÓMaster
+# éªŒè¯kubectlèƒ½å¤Ÿæ­£ç¡®è¿æ¥Master
 kubectl -n kube-system get configmap

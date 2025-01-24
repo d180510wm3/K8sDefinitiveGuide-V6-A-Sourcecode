@@ -1,10 +1,10 @@
-# ÎªDeploymentÉèÖÃĞÂµÄ¾µÏñÃû³Æ
+# ä¸ºDeploymentè®¾ç½®æ–°çš„é•œåƒåç§°
 kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1
 
 kubectl edit deployment/nginx-deployment
 
-# ²é¿´DeploymentµÄ¸üĞÂ¹ı³Ì
+# æŸ¥çœ‹Deploymentçš„æ›´æ–°è¿‡ç¨‹
 kubectl rollout status deployment/nginx-deployment
 
-# ²é¿´Deployment nginx-deploymentµÄÏêÏ¸ÊÂ¼şĞÅÏ¢
+# æŸ¥çœ‹Deployment nginx-deploymentçš„è¯¦ç»†äº‹ä»¶ä¿¡æ¯
 kubectl describe deployments/nginx-deployment

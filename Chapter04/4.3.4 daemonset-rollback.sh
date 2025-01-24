@@ -1,14 +1,14 @@
-# ²é¿´DaemonSetµÄÀúÊ·°æ±¾
+# æŸ¥çœ‹DaemonSetçš„å†å²ç‰ˆæœ¬
 kubectl -n kube-system rollout history daemonset fluentd
 
-# ²é¿´ÌØ¶¨°æ±¾µÄÏêÏ¸ĞÅÏ¢
+# æŸ¥çœ‹ç‰¹å®šç‰ˆæœ¬çš„è¯¦ç»†ä¿¡æ¯
 kubectl -n kube-system rollout history daemonset fluentd --revision=1
 
-# ½«DaemonSet»Ø¹öµ½ÉÏÒ»¸ö°æ±¾
+# å°†DaemonSetå›æ»šåˆ°ä¸Šä¸€ä¸ªç‰ˆæœ¬
 kubectl -n kube-system rollout undo daemonset fluentd
 
-# Ö¸¶¨ĞèÒª»Ø¹öµ½µÄ°æ±¾ºÅ
+# æŒ‡å®šéœ€è¦å›æ»šåˆ°çš„ç‰ˆæœ¬å·
 kubectl -n kube-system rollout undo daemonset fluentd --to-revision=2
 
-# ½«Ö´ĞĞÃüÁîÉèÖÃµ½CHANGE-CAUSE×Ö¶ÎÖĞ
+# å°†æ‰§è¡Œå‘½ä»¤è®¾ç½®åˆ°CHANGE-CAUSEå­—æ®µä¸­
 kubectl create -f fluentd-ds.yaml --record=true

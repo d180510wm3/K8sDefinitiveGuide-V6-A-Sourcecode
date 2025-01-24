@@ -1,11 +1,11 @@
-# ¼ì²é²¿ÊğÕâ¸öDeploymentµÄÀúÊ·¼ÇÂ¼
+# æ£€æŸ¥éƒ¨ç½²è¿™ä¸ªDeploymentçš„å†å²è®°å½•
 kubectl rollout history deployment/nginx-deployment
 
-# ²é¿´ÌØ¶¨°æ±¾µÄÏêÏ¸ĞÅÏ¢
+# æŸ¥çœ‹ç‰¹å®šç‰ˆæœ¬çš„è¯¦ç»†ä¿¡æ¯
 kubectl rollout history deployment/nginx-deployment --revision=3
 
-# ³·Ïú±¾´Î·¢²¼²¢»Ø¹öµ½ÉÏÒ»¸ö²¿Êğ°æ±¾
+# æ’¤é”€æœ¬æ¬¡å‘å¸ƒå¹¶å›æ»šåˆ°ä¸Šä¸€ä¸ªéƒ¨ç½²ç‰ˆæœ¬
 kubectl rollout undo deployment/nginx-deployment
 
-# Ö¸¶¨»Ø¹öµ½µÄ²¿Êğ°æ±¾ºÅ
+# æŒ‡å®šå›æ»šåˆ°çš„éƒ¨ç½²ç‰ˆæœ¬å·
 kubectl rollout undo deployment/nginx-deployment --to-revision=2

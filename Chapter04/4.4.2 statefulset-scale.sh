@@ -1,5 +1,5 @@
-# À©Èİ
+# æ‰©å®¹
 kubectl scale statefulset web --replicas=5
 
-# ËõÈİ
+# ç¼©å®¹
 kubectl scale statefulset web --replicas=3

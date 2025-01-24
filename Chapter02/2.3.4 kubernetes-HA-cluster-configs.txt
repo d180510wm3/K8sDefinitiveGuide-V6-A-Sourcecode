@@ -1,4 +1,4 @@
-# CA证书配置
+# CA璇佷功閰嶇疆
 
 # master_ssl.cnf
 [req]
@@ -27,7 +27,7 @@ IP.5 = 192.168.18.100
 
 
 
-# 创建服务端CA证书
+# 鍒涘缓鏈嶅姟绔疌A璇佷功
 
 openssl genrsa -out apiserver.key 2048
 
@@ -38,7 +38,7 @@ openssl x509 -req -in apiserver.csr -CA ca.crt -CAkey ca.key -CAcreateserial -da
 
 
 
-# Kubernetes各服务的配置
+# Kubernetes鍚勬湇鍔＄殑閰嶇疆
 
 # /usr/lib/systemd/system/kube-apiserver.service
 [Unit]
@@ -74,7 +74,7 @@ systemctl start kube-apiserver && systemctl enable kube-apiserver
 
 
 
-# 创建客户端CA证书
+# 鍒涘缓瀹㈡埛绔疌A璇佷功
 openssl genrsa -out client.key 2048
 
 openssl req -new -key client.key -subj "/CN=admin" -out client.csr
@@ -156,7 +156,7 @@ systemctl start kube-scheduler && systemctl enable kube-scheduler
 
 
 
-# HAProxy和keepalived 配置
+# HAProxy鍜宬eepalived 閰嶇疆
 
 # haproxy.cfg
 global
@@ -210,7 +210,7 @@ backend kube-apiserver
     server  k8s-master3 192.168.18.5:6443 check
 
 
-# 启动haproxy
+# 鍚姩haproxy
 docker run -d --name k8s-haproxy \
   --net=host \
   --restart=always \
@@ -305,7 +305,7 @@ vrrp_instance VI_1 {
 }
 
 
-# 启动keepalived
+# 鍚姩keepalived
 docker run -d --name k8s-keepalived \
   --restart=always \
   --net=host \
@@ -315,5 +315,5 @@ docker run -d --name k8s-keepalived \
   osixia/keepalived:2.0.20 --copy-service
 
 
-# 通过haproxy访问kube-apiserver
+# 閫氳繃haproxy璁块棶kube-apiserver
 curl -v -k https://192.168.18.100:9443
