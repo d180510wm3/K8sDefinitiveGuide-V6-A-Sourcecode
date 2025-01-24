@@ -1,4 +1,4 @@
-# ĞŞ¸ÄkubeletµÄsystemd·şÎñÃèÊöÎÄ¼şÅäÖÃ
+# ä¿®æ”¹kubeletçš„systemdæœåŠ¡æè¿°æ–‡ä»¶é…ç½®
 # cat /usr/lib/systemd/system/kubelet.service
 [Unit]
 Description=kubelet: The Kubernetes Node Agent
@@ -14,13 +14,13 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 
-# ÖØÆôkubelet·şÎñ
+# é‡å¯kubeletæœåŠ¡
 systemctl daemon-reload
 systemctl restart kubelet.service
 
 
 
-# ĞŞ¸ÄkubeletÅäÖÃÎÄ¼ş£¬¿ªÆô²¢ÉèÖÃkube-reservedÔ¤Áô×ÊÔ´µÄÏà¹ØĞÅÏ¢
+# ä¿®æ”¹kubeleté…ç½®æ–‡ä»¶ï¼Œå¼€å¯å¹¶è®¾ç½®kube-reservedé¢„ç•™èµ„æºçš„ç›¸å…³ä¿¡æ¯
 ---
 kind: KubeletConfiguration
 cgroupDriver: systemd
@@ -36,8 +36,8 @@ kubeReservedCgroup: /kubeonly
 
 
 
-# ÅäÖÃsystem-reservedÔ¤Áô×ÊÔ´
-# ĞŞ¸ÄkubeletÅäÖÃÎÄ¼şÖĞµÄÏà¹ØÄÚÈİ
+# é…ç½®system-reservedé¢„ç•™èµ„æº
+# ä¿®æ”¹kubeleté…ç½®æ–‡ä»¶ä¸­çš„ç›¸å…³å†…å®¹
 ---
 kind: KubeletConfiguration
 cgroupDriver: systemd
@@ -57,14 +57,14 @@ systemReserved:
   ephemeral-storage: 1Gi
 systemReservedCgroup: /system
 
-# ÖØÆôkubelet·şÎñ
+# é‡å¯kubeletæœåŠ¡
 systemctl daemon-reload
 systemctl restart kubelet.service
 
 
 
 
-# ÅäÖÃPodÇıÖğµÄÔ¤Áô×ÊÔ´
+# é…ç½®Podé©±é€çš„é¢„ç•™èµ„æº
 ---
 kind: KubeletConfiguration
 evictionSoft:

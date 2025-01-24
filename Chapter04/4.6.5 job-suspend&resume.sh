@@ -1,4 +1,4 @@
-# completions=4À´±íÊ¾ĞèÒªÍê³É4¸öÈÎÎñ
+# completions=4æ¥è¡¨ç¤ºéœ€è¦å®Œæˆ4ä¸ªä»»åŠ¡
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -17,9 +17,9 @@ spec:
 
 
 
-# ÉèÖÃsuspend=trueÀ´¹ÒÆğJob
+# è®¾ç½®suspend=trueæ¥æŒ‚èµ·Job
 kubectl patch job/job-sleep5 --type=strategic --patch '{"spec":{"suspend":true}}'
 
 
-# »Ö¸´JobµÄÔËĞĞ×´Ì¬
+# æ¢å¤Jobçš„è¿è¡ŒçŠ¶æ€
 kubectl patch job/job-sleep5 --type=strategic --patch '{"spec":{"suspend":false}}'

@@ -1,4 +1,4 @@
-# Îª²»Í¬×â»§ÅäÖÃ²»Í¬µÄ»·¾³
+# ä¸ºä¸åŒç§Ÿæˆ·é…ç½®ä¸åŒçš„ç¯å¢ƒ
 # namespace-development.yaml
 apiVersion: v1
 kind: Namespace
@@ -13,32 +13,32 @@ metadata:
 
 
 
-# ÎªÁ½¸ö×â»§·Ö±ğ¶¨ÒåÒ»¸öÔËĞĞ»·¾³£¨context£©£¬²¢¹ØÁªµ½¸÷×ÔµÄÃüÃû¿Õ¼ä
+# ä¸ºä¸¤ä¸ªç§Ÿæˆ·åˆ†åˆ«å®šä¹‰ä¸€ä¸ªè¿è¡Œç¯å¢ƒï¼ˆcontextï¼‰ï¼Œå¹¶å…³è”åˆ°å„è‡ªçš„å‘½åç©ºé—´
 kubectl config set-context ctx-dev --namespace=development --cluster=kubernetes-cluster --user=dev
 
 kubectl config set-context ctx-prod --namespace=production --cluster=kubernetes-cluster --user=prod
 
 
-# ½«µ±Ç°ÔËĞĞ»·¾³ÉèÖÃÎªctx-dev
+# å°†å½“å‰è¿è¡Œç¯å¢ƒè®¾ç½®ä¸ºctx-dev
 kubectl config use-context ctx-dev
 
 
 
 
 
-# Îª×â»§´´½¨ÓÃ»§Á¬½ÓAPI ServerµÄ¿Í»§¶ËCAÖ¤Êé
+# ä¸ºç§Ÿæˆ·åˆ›å»ºç”¨æˆ·è¿æ¥API Serverçš„å®¢æˆ·ç«¯CAè¯ä¹¦
 
-# 1. ´´½¨ÓÃ»§µÄË½Ô¿ºÍÖ¤Êé
+# 1. åˆ›å»ºç”¨æˆ·çš„ç§é’¥å’Œè¯ä¹¦
 openssl genrsa -out dev.key 2048
 openssl req -new -key dev.key -out dev.csr
 
-# 2. ÓÃKubernetesµÄCA¸ùÖ¤Êé½øĞĞÇ©Ãû
+# 2. ç”¨Kubernetesçš„CAæ ¹è¯ä¹¦è¿›è¡Œç­¾å
 openssl x509 -req -in dev.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out dev.crt -days 500
 
-# 3. ÔÚkubeconfigÖĞÉèÖÃdevÓÃ»§Ö¤ÊéĞÅÏ¢
+# 3. åœ¨kubeconfigä¸­è®¾ç½®devç”¨æˆ·è¯ä¹¦ä¿¡æ¯
 kubectl config set-credentials dev --client-certificate=/root/dev.crt --client-key=/root/dev.key
 
-# 4. È·ÈÏdevÓÃ»§Ö¤ÊéĞÅÏ¢ÒÑ¾­ÉèÖÃÍê³É
+# 4. ç¡®è®¤devç”¨æˆ·è¯ä¹¦ä¿¡æ¯å·²ç»è®¾ç½®å®Œæˆ
 kubectl config view
 users:
 - name: dev
@@ -47,11 +47,11 @@ users:
     client-key: /root/dev.key
 
 
-# ¸ødevÓÃ»§½øĞĞÊÚÈ¨£¬ÏÈÇĞ»»µ½¹ÜÀíÔ±µÄcontext
+# ç»™devç”¨æˆ·è¿›è¡Œæˆæƒï¼Œå…ˆåˆ‡æ¢åˆ°ç®¡ç†å‘˜çš„context
 kubectl config use-context kubernetes-admin@kubernetes
 
-# ´´½¨development×â»§µÄrole£¬²¢°ó¶¨µ½ÓÃ»§devÉÏ
-# 1. ´´½¨Role
+# åˆ›å»ºdevelopmentç§Ÿæˆ·çš„roleï¼Œå¹¶ç»‘å®šåˆ°ç”¨æˆ·devä¸Š
+# 1. åˆ›å»ºRole
 # develement-role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -65,7 +65,7 @@ rules:
 
 kubectl create -f develement-role.yaml
 
-# 2. ´´½¨RoleBinging£¬¸ødevÓÃ»§ÊÚÈ¨development-roleµÄ½ÇÉ«
+# 2. åˆ›å»ºRoleBingingï¼Œç»™devç”¨æˆ·æˆæƒdevelopment-roleçš„è§’è‰²
 # development-role-binding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -83,7 +83,7 @@ roleRef:
 
 kubectl create -f development-role-binding.yaml
 
-# ÇĞ»»µ½ctx-dev»·¾³£¬ÑéÖ¤devÓÃ»§¿ÉÒÔÔÚÆäÃüÃû¿Õ¼äÖĞ¹ÜÀí×ÊÔ´
+# åˆ‡æ¢åˆ°ctx-devç¯å¢ƒï¼ŒéªŒè¯devç”¨æˆ·å¯ä»¥åœ¨å…¶å‘½åç©ºé—´ä¸­ç®¡ç†èµ„æº
 kubectl config use-context ctx-dev
 kubectl get pods
 

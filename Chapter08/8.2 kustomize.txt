@@ -1,4 +1,4 @@
-# Í¨¹ıconfigMapGeneratorÉú³ÉÒ»¸öConfigMapÅäÖÃÎÄ¼ş
+# é€šè¿‡configMapGeneratorç”Ÿæˆä¸€ä¸ªConfigMapé…ç½®æ–‡ä»¶
 # kustomization.yaml
 configMapGenerator:
 - name: example-configmap-1
@@ -6,13 +6,13 @@ configMapGenerator:
   - application.properties
 
 
-# Í¨¹ıkubectl kustomizeÃüÁîÒ»¼üÉú³ÉConfigMap¶ÔÏóµÄÅäÖÃÎÄ¼ş
+# é€šè¿‡kubectl kustomizeå‘½ä»¤ä¸€é”®ç”ŸæˆConfigMapå¯¹è±¡çš„é…ç½®æ–‡ä»¶
 kubectl kustomize ./
 
 
 
 
-# Í¨¹ı»·¾³ÎÄ¼ş£¨.env£©Éú³ÉConfigMapÅäÖÃÎÄ¼ş
+# é€šè¿‡ç¯å¢ƒæ–‡ä»¶ï¼ˆ.envï¼‰ç”ŸæˆConfigMapé…ç½®æ–‡ä»¶
 # cat .env
 FOO=Bar
 
@@ -27,7 +27,7 @@ kubectl kustomize ./
 
 
 
-# ×éºÏ²»Í¬µÄ×ÊÔ´×÷ÎªÒ»¸öÓ¦ÓÃ»òÕßÒ»¸ö¹ÜÀíµ¥Ôª½øĞĞÕûÌå¹ÜÀí
+# ç»„åˆä¸åŒçš„èµ„æºä½œä¸ºä¸€ä¸ªåº”ç”¨æˆ–è€…ä¸€ä¸ªç®¡ç†å•å…ƒè¿›è¡Œæ•´ä½“ç®¡ç†
 # deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
